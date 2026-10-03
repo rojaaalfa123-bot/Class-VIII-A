@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kelas VIII A</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 10% 20%, #bfdbfe 0px, transparent 120px),
+                radial-gradient(circle at 90% 15%, #bae6fd 0px, transparent 140px),
+                radial-gradient(circle at 85% 85%, #dbeafe 0px, transparent 150px),
+                linear-gradient(135deg, #dbeafe, #f0f9ff);
+
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 30px 15px;
+            color: #222;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            animation: masuk 1s ease;
+        }
+
+        @keyframes masuk {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ================= HIASAN BULAT ================= */
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        body::before {
+            width: 180px;
+            height: 180px;
+            background: #93c5fd;
+            top: -70px;
+            left: -60px;
+            animation: bulat1 5s ease-in-out infinite;
+        }
+
+        body::after {
+            width: 220px;
+            height: 220px;
+            background: #7dd3fc;
+            bottom: -100px;
+            right: -80px;
+            animation: bulat2 6s ease-in-out infinite;
+        }
+
+        @keyframes bulat1 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(25px, 30px) rotate(20deg);
+            }
+        }
+
+        @keyframes bulat2 {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-25px, -30px) scale(1.15);
+            }
+        }
+
+        /* ================= HIASAN TAMBAHAN ================= */
+
+        .hiasan {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #3b82f6;
+            opacity: 0.6;
+            z-index: -1;
+            animation: titik 4s ease-in-out infinite;
+        }
+
+        .titik1 {
+            top: 18%;
+            left: 8%;
+        }
+
+        .titik2 {
+            top: 35%;
+            right: 8%;
+            width: 12px;
+            height: 12px;
+            animation-delay: 1s;
+        }
+
+        .titik3 {
+            bottom: 25%;
+            left: 12%;
+            width: 6px;
+            height: 6px;
+            animation-delay: 2s;
+        }
+
+        .titik4 {
+            bottom: 12%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        @keyframes titik {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.5);
+                opacity: 0.9;
+            }
+        }
+
+        /* BINTANG */
+
+        .bintang {
+            position: fixed;
+            z-index: -1;
+            color: #2563eb;
+            font-size: 20px;
+            opacity: 0.5;
+            animation: bintangGerak 4s ease-in-out infinite;
+        }
+
+        .bintang1 {
+            top: 12%;
+            left: 25%;
+        }
+
+        .bintang2 {
+            top: 55%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .bintang3 {
+            bottom: 20%;
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        .bintang4 {
+            top: 70%;
+            right: 7%;
+            animation-delay: 3s;
+        }
+
+        @keyframes bintangGerak {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(180deg) scale(1.4);
+                opacity: 1;
+            }
+        }
+
+        /* ================= JUDUL ================= */
+
+        h1 {
+            background: rgba(255,255,255,0.92);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px #0002;
+            color: #2563eb;
+            margin-top: 0;
+            border: 1px solid white;
+            animation: judul 1.2s ease;
+        }
+
+        @keyframes judul {
+            from {
+                opacity: 0;
+                transform: scale(0.7) rotate(-3deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .subjudul {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* ================= MENU ================= */
+
+        .menu {
+            background: rgba(255,255,255,0.94);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px #0002;
+            border: 1px solid white;
+            animation: naik 1s ease;
+        }
+
+        @keyframes naik {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        input {
+            padding: 13px;
+            width: 100%;
+            font-size: 16px;
+            border: 2px solid #dbeafe;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px #3b82f633;
+            transform: scale(1.02);
+        }
+
+        /* ================= TOMBOL ================= */
+
+        button {
+            padding: 12px 30px;
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 3px 8px #0003;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 7px 15px #0003;
+        }
+
+        button:active {
+            transform: scale(0.88);
+        }
+
+        /* ================= HASIL ================= */
+
+        #hasil {
+            background: rgba(255,255,255,0.94);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 4px 12px #0002;
+            border: 1px solid white;
+        }
+
+        .animasiHasil {
+            animation: hasilMasuk 0.6s ease;
+        }
+
+        @keyframes hasilMasuk {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+
+            60% {
+                transform: translateY(-5px) scale(1.02);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ANIMASI KEMBALI */
+
+        .keluar {
+            animation: keluar 0.45s ease forwards;
+        }
+
+        @keyframes keluar {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.94) translateX(-10px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0.85) translateX(30px);
+            }
+        }
+
+        #hasil h2 {
+            color: #2563eb;
+            text-align: center;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 10px;
+        }
+
+        #hasil p {
+            line-height: 1.6;
+        }
+
+        #hasil li {
+            margin: 8px 0;
+        }
+
+        .hari {
+            background: #eff6ff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        /* ================= TOMBOL KEMBALI ================= */
+
+        .kembali {
+            display: block;
+            margin: 20px auto 0;
+            background: #64748b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kembali:hover {
+            background: #475569;
+        }
+
+        .kembali:active {
+            animation: tekanKembali 0.45s ease;
+        }
+
+        @keyframes tekanKembali {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(0.85) rotate(-3deg);
+            }
+
+            60% {
+                transform: scale(1.08) rotate(3deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+            animation: footerMasuk 2s ease;
+        }
+
+        @keyframes footerMasuk {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ================= EFEK GELOMBANG TOMBOL ================= */
+
+        button::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        button {
+            position: relative;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HIASAN -->
+
+<div class="hiasan titik1"></div>
+<div class="hiasan titik2"></div>
+<div class="hiasan titik3"></div>
+<div class="hiasan titik4"></div>
+
+<div class="bintang bintang1">✦</div>
+<div class="bintang bintang2">✧</div>
+<div class="bintang bintang3">✦</div>
+<div class="bintang bintang4">✧</div>
+
+
+<div class="container">
+
+    <h1>📚 KELAS VIII A</h1>
+
+    <p class="subjudul">
+        Website Informasi Kelas
+    </p>
+
+    <div class="menu">
+
+        <h2 id="judulMenu">🔎 Mau lihat apa?</h2>
+
+        <input
+            type="text"
+            id="pilihan"
+            placeholder="Ketik pilihan..."
+        >
+
+        <button onclick="lihat()">Lihat</button>
+
+        <p style="font-size:13px;color:#777;">
+            Ketik:
+            <b>absensi</b>,
+            <b>struktur</b>,
+            <b>piket</b>,
+            <b>jadwal</b>,
+            atau
+            <b>penanggung jawab</b>
+        </p>
+
+    </div>
+
+    <div id="hasil">
+        <p style="text-align:center;">
+            Silakan pilih informasi yang ingin dilihat.
+        </p>
+    </div>
+
+    <footer>
+        Kelas VIII A • 2026
+    </footer>
+
+</div>
+
+
+<script>
+
+let mode = "";
+
+
+/* ================= TAMPILKAN HASIL ================= */
+
+function tampilkanHasil(html) {
+
+    let hasil = document.getElementById("hasil");
+
+    hasil.classList.remove("animasiHasil");
+
+    void hasil.offsetWidth;
+
+    hasil.innerHTML = html;
+
+    hasil.classList.add("animasiHasil");
+}
+
+
+/* ================= FUNGSI UTAMA ================= */
+
+function lihat() {
+
+    let pilihan = document
+        .getElementById("pilihan")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    /* ===== JADWAL ===== */
+
+    if (mode == "jadwal") {
+        tampilkanJadwal(pilihan);
+        return;
+    }
+
+
+    /* ===== PIKET ===== */
+
+    if (mode == "pilihPiket") {
+
+        if (pilihan == "mbg") {
+
+            mode = "piketMBG";
+
+            document.getElementById("judulMenu").innerHTML =
+                "🍱 Mau lihat piket MBG hari apa?";
+
+            document.getElementById("pilihan").value = "";
+
+            document.getElementById("pilihan").placeholder =
+                "Ketik hari...";
+
+            tampilkanHasil(`
+                <p style="text-align:center;">
+                    Piket <b>MBG</b> dipilih.<br>
+                    Ketik nama hari, misalnya:
+                    <b>senin</b>
+                </p>
+            `);
+
+        }
+
+        else if (pilihan == "kelas") {
+
+            mode = "piketKelas";
+
+            document.getElementById("judulMenu").innerHTML =
+                "🧹 Mau lihat piket kelas hari apa?";
+
+            document.getElementById("pilihan").value = "";
+
+            document.getElementById("pilihan").placeholder =
+                "Ketik hari...";
+
+            tampilkanHasil(`
+                <p style="text-align:center;">
+                    Piket <b>Kelas</b> dipilih.<br>
+                    Ketik nama hari, misalnya:
+                    <b>senin</b>
+                </p>
+            `);
+
+        }
+
+        else {
+
+            tampilkanHasil(`
+                <h2>❌ Pilihan tidak ditemukan</h2>
+                <p style="text-align:center;">
+                    Ketik <b>mbg</b> atau <b>kelas</b>.
+                </p>
+            `);
+        }
+
+        return;
+    }
+
+
+    /* ===== PIKET MBG ===== */
+
+    if (mode == "piketMBG") {
+        tampilkanPiketMBG(pilihan);
+        return;
+    }
+
+
+    /* ===== PIKET KELAS ===== */
+
+    if (mode == "piketKelas") {
+        tampilkanPiketKelas(pilihan);
+        return;
+    }
+
+
+    /* ===== PENANGGUNG JAWAB ===== */
+
+    if (mode == "penanggungJawab") {
+
+        tampilkanPJ(pilihan);
+
+        return;
+    }
+
+
+    /* ================= ABSENSI ================= */
+
+    if (pilihan == "absensi") {
+
+        tampilkanHasil(`
+            <h2>📋 Absensi VIII A</h2>
+
+            <ol>
+                <li>Aisyah</li>
+                <li>Finza</li>
+                <li>Arkana</li>
+                <li>Atiqa</li>
+                <li>Bella</li>
+                <li>Dimas</li>
+                <li>Farras</li>
+                <li>Lily</li>
+                <li>Firly</li>
+                <li>Fifi</li>
+                <li>Azzam</li>
+                <li>Karin</li>
+                <li>Kayla</li>
+                <li>Keisya</li>
+                <li>Kirana</li>
+                <li>Fiyyan</li>
+                <li>Alvin</li>
+                <li>Hezkiel</li>
+                <li>Igam</li>
+                <li>Jafas</li>
+                <li>Nizar</li>
+                <li>Alfa</li>
+                <li>Salman</li>
+                <li>Fattah</li>
+                <li>Nadine</li>
+                <li>Zaskya</li>
+                <li>Nandya</li>
+                <li>Afiqa</li>
+                <li>Aldo</li>
+                <li>Satria</li>
+                <li>Yoga</li>
+            </ol>
+
+            <button class="kembali" onclick="kembali()">
+                ← Kembali
+            </button>
+        `);
+
+        return;
+    }
+
+
+    /* ================= STRUKTUR ================= */
+
+    if (pilihan == "struktur") {
+
+        tampilkanHasil(`
+            <h2>🏫 Struktur Kelas</h2>
+
+            <p><b>Wali Kelas:</b><br>
+            Bu Dina</p>
+
+            <p><b>Ketua Kelas:</b><br>
+            Dimas</p>
+
+            <p><b>Wakil Ketua:</b><br>
+            Zaskya</p>
+
+            <p><b>Bendahara I-II:</b><br>
+            Fifi, Aisyah</p>
+
+            <p><b>Sekretaris I-II:</b><br>
+            Farras, Kirana</p>
+
+            <p><b>Duta Literasi I-IV:</b><br>
+            Azzam, Lily, Kayla, Igam</p>
+
+            <p><b>Kader UKS I-IV:</b><br>
+            Bella, Alfa, Keisya, Hezkiel</p>
+
+            <p><b>Duta Mushola I-II:</b><br>
+            Yoga, Afiqa</p>
+
+            <p><b>Duta Lingkungan I-II:</b><br>
+            Nadine, Satria</p>
+
+            <p><b>Pass Temenan:</b><br>
+            Firly, Finza</p>
+
+            <button class="kembali" onclick="kembali()">
+                ← Kembali
+            </button>
+        `);
+
+        return;
+    }
+
+
+    /* ================= PIKET ================= */
+
+    if (pilihan == "piket") {
+
+        mode = "pilihPiket";
+
+        document.getElementById("judulMenu").innerHTML =
+            "🧹 Mau lihat piket apa?";
+
+        document.getElementById("pilihan").value = "";
+
+        document.getElementById("pilihan").placeholder =
+            "Ketik kelas atau mbg...";
+
+        tampilkanHasil(`
+            <p style="text-align:center;">
+                Pilih jenis piket:
+            </p>
+
+            <p style="text-align:center;">
+                🧹 <b>kelas</b><br><br>
+                🍱 <b>mbg</b>
+            </p>
+        `);
+
+        return;
+    }
+
+
+    /* ================= JADWAL ================= */
+
+    if (pilihan == "jadwal") {
+
+        mode = "jadwal";
+
+        document.getElementById("judulMenu").innerHTML =
+            "📚 Mau lihat jadwal hari apa?";
+
+        document.getElementById("pilihan").value = "";
+
+        document.getElementById("pilihan").placeholder =
+            "Ketik hari...";
+
+        tampilkanHasil(`
+            <p style="text-align:center;">
+                Ketik nama hari, misalnya:
+                <b>senin</b>
+            </p>
+        `);
+
+        return;
+    }
+
+
+    /* ================= PENANGGUNG JAWAB ================= */
+
+    if (
+        pilihan == "penanggung jawab" ||
+        pilihan == "penanggungjawab" ||
+        pilihan == "pj"
+    ) {
+
+        mode = "penanggungJawab";
+
+        document.getElementById("judulMenu").innerHTML =
+            "📖 Mau lihat PJ mata pelajaran apa?";
+
+        document.getElementById("pilihan").value = "";
+
+        document.getElementById("pilihan").placeholder =
+            "Ketik nama mata pelajaran...";
+
+        tampilkanHasil(`
+            <p style="text-align:center;">
+                Ketik nama mata pelajaran, misalnya:
+                <b>mtk</b>
+            </p>
+        `);
+
+        return;
+    }
+
+
+    /* ================= SALAH ================= */
+
+    tampilkanHasil(`
+        <h2>❌ Pilihan tidak ditemukan</h2>
+
+        <p style="text-align:center;">
+            Silakan ketik salah satu:
+        </p>
+
+        <p style="text-align:center;">
+            <b>absensi</b><br>
+            <b>struktur</b><br>
+            <b>piket</b><br>
+            <b>jadwal</b><br>
+            <b>penanggung jawab</b>
+        </p>
+    `);
+}
+
+
+/* ================= JADWAL ================= */
+
+function tampilkanJadwal(hari) {
+
+    let data = {
+
+        senin: `
+            <h2>📚 Jadwal Senin</h2>
+            <ol>
+                <li>SenBud</li>
+                <li>MTK</li>
+                <li>BIG</li>
+            </ol>
+        `,
+
+        selasa: `
+            <h2>📚 Jadwal Selasa</h2>
+            <ol>
+                <li>PJOK</li>
+                <li>BINDO</li>
+                <li>IPA</li>
+            </ol>
+        `,
+
+        rabu: `
+            <h2>📚 Jadwal Rabu</h2>
+            <ol>
+                <li>IPS</li>
+                <li>BADER</li>
+                <li>MTK</li>
+                <li>PKN</li>
+            </ol>
+        `,
+
+        kamis: `
+            <h2>📚 Jadwal Kamis</h2>
+            <ol>
+                <li>INFOR</li>
+                <li>BIG</li>
+                <li>BK</li>
+                <li>PAI</li>
+            </ol>
+        `,
+
+        jumat: `
+            <h2>📚 Jadwal Jumat</h2>
+            <ol>
+                <li>IPS</li>
+                <li>IPA</li>
+            </ol>
+        `,
+
+        sabtu: `
+            <h2>📚 Jadwal Sabtu</h2>
+            <ol>
+                <li>BINDO</li>
+            </ol>
+        `
+    };
+
+    if (data[hari]) {
+
+        tampilkanHasil(data[hari] + `
+            <button class="kembali" onclick="kembali()">
+                ← Kembali
+            </button>
+        `);
+
+    } else {
+
+        tampilkanHasil(`
+            <h2>❌ Hari tidak ditemukan</h2>
+
+            <p style="text-align:center;">
+                Ketik:
+                <b>senin</b>,
+                <b>selasa</b>,
+                <b>rabu</b>,
+                <b>kamis</b>,
+                <b>jumat</b>,
+                atau
+                <b>sabtu</b>
+            </p>
+        `);
+    }
+}
+
+
+/* ================= PENANGGUNG JAWAB ================= */
+
+function tampilkanPJ(mapel) {
+
+    let data = {
+
+        pkn: ["PKN", "Nadine, Atiqa"],
+        mtk: ["MTK", "Aisyah, Hezkiel"],
+        ipa: ["IPA", "Dimas, Azzam"],
+        big: ["BIG / Bahasa Inggris", "Karin, Kirana"],
+        bindo: ["BINDO / Bahasa Indonesia", "Jafas, Zaskya"],
+        informatika: ["Informatika", "Alfa, Kayla"],
+        infor: ["Informatika", "Alfa, Kayla"],
+        ips: ["IPS", "Salman"],
+        pai: ["PAI", "Satria, Yoga"],
+        senbud: ["Seni Budaya", "Farras, Fifi"],
+        "seni budaya": ["Seni Budaya", "Farras, Fifi"],
+        bk: ["BK", "Finza, Firly"],
+        pjok: ["PJOK", "Arkana, Igam"],
+        bader: ["Bahasa Daerah", "Lily, Keisya"],
+        "bahasa daerah": ["Bahasa Daerah", "Lily, Keisya"]
+    };
+
+    if (data[mapel]) {
+
+        tampilkanHasil(`
+            <h2>📖 ${data[mapel][0]}</h2>
+
+            <p style="text-align:center; font-size:18px;">
+                👤 <b>Penanggung Jawab</b>
+            </p>
+
+            <p style="text-align:center; font-size:20px; color:#2563eb;">
+                ${data[mapel][1]}
+            </p>
+
+            <button class="kembali" onclick="kembali()">
+                ← Kembali
+            </button>
+        `);
+
+    } else {
+
+        tampilkanHasil(`
+            <h2>❌ Mata pelajaran tidak ditemukan</h2>
+
+            <p style="text-align:center;">
+                Coba ketik salah satu:
+            </p>
+
+            <p style="text-align:center;">
+                <b>PKN</b> •
+                <b>MTK</b> •
+                <b>IPA</b> •
+                <b>BIG</b> •
+                <b>BINDO</b><br><br>
+
+                <b>Informatika</b> •
+                <b>IPS</b> •
+                <b>PAI</b> •
+                <b>SenBud</b><br><br>
+
+                <b>BK</b> •
+                <b>PJOK</b> •
+                <b>Bader</b>
+            </p>
+        `);
+    }
+}
+
+
+/* ================= PIKET MBG ================= */
+
+function tampilkanPiketMBG(hari) {
+
+    let data = {
+
+        senin: `
+            <h2>🍱 Piket MBG Senin</h2>
+            <p>Arkana, Azzam, Farras, Firly, Kirana, Nadine</p>
+        `,
+
+        selasa: `
+            <h2>🍱 Piket MBG Selasa</h2>
+            <p>Finza, Aldo, Alfa, Keisya, Afiqa, Aisyah</p>
+        `,
+
+        rabu: `
+            <h2>🍱 Piket MBG Rabu</h2>
+            <p>Hezkiel, Fiyyan, Jafas, Nizar, Kayla, Atiqa, Karin</p>
+        `,
+
+        kamis: `
+            <h2>🍱 Piket MBG Kamis</h2>
+            <p>Salman, Alvin, Fattah, Igam, Lily, Bella</p>
+        `,
+
+        jumat: `
+            <h2>🍱 Piket MBG Jumat</h2>
+            <p>Dimas, Yoga, Satria, Fifi, Nandya, Zaskya</p>
+        `
+    };
+
+    if (data[hari]) {
+
+        tampilkanHasil(data[hari] + `
+            <button class="kembali" onclick="kembali()">
+                ← Kembali
+            </button>
+        `);
+
+    } else {
+
+        tampilkanHasil(`
+            <h2>❌ Hari tidak ditemukan</h2>
+            <p style="text-align:center;">
+                Piket MBG tersedia Senin sampai Jumat.
+            </p>
+        `);
+    }
+}
+
+
+/* ================= PIKET KELAS ================= */
+
+function tampilkanPiketKelas(hari) {
+
+    let data = {
+
+        senin: `
+            <h2>🧹 Piket Kelas Senin</h2>
+            <p>Aisyah, Zaskya, Farras, Igam, Fattah, Alfa</p>
+        `,
+
+        selasa: `
+            <h2>🧹 Piket Kelas Selasa</h2>
+            <p>Atiqa, Finza, Nadine, Nandya, Jafas, Aldo</p>
+        `,
+
+        rabu: `
+            <h2>🧹 Piket Kelas Rabu</h2>
+            <p>Bella, Kirana, Azzam, Afiqa, Satria, Salman</p>
+        `,
+
+        kamis: `
+            <h2>🧹 Piket Kelas Kamis</h2>
+            <p>Lily, Keisya, Arkana, Fiyyan, Nizar, Yoga</p>
+        `,
+
+        jumat: `
+            <h2>🧹 Piket Kelas Jumat</h2>
+            <p>Firly, Kayla, Alvin</p>
+        `,
+
+        sabtu: `
+            <h2>🧹 Piket Kelas Sabtu</h2>
+            <p>Dimas, Fifi, Karin, Hezkiel</p>
+        `
+    };
+
+    if (data[hari]) {
+
+        tampilkanHasil(data[hari] + `
+            <button class="kembali" onclick="kembali()">
+                ← Kembali
+            </button>
+        `);
+
+    } else {
+
+        tampilkanHasil(`
+            <h2>❌ Hari tidak ditemukan</h2>
+            <p style="text-align:center;">
+                Piket Kelas tersedia Senin sampai Sabtu.
+            </p>
+        `);
+    }
+}
+
+
+/* ================= KEMBALI ================= */
+
+function kembali() {
+
+    let hasil = document.getElementById("hasil");
+
+    /* Animasi keluar */
+
+    hasil.classList.remove("animasiHasil");
+    hasil.classList.add("keluar");
+
+    setTimeout(function() {
+
+        mode = "";
+
+        document.getElementById("judulMenu").innerHTML =
+            "🔎 Mau lihat apa?";
+
+        document.getElementById("pilihan").value = "";
+
+        document.getElementById("pilihan").placeholder =
+            "Ketik pilihan...";
+
+        hasil.classList.remove("keluar");
+
+        tampilkanHasil(`
+            <p style="text-align:center;">
+                ✨ Silakan pilih informasi yang ingin dilihat.
+            </p>
+        `);
+
+        document.getElementById("pilihan").focus();
+
+    }, 450);
+}
+
+</script>
+
+</body>
+</html>
